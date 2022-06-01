@@ -1,14 +1,10 @@
-from flask import render_template
-import connexion
+from flask import Flask
 
-app = connexion.App(__name__, specification_dir='./')
+app = Flask(__name__)
 
-app.add_api('swagger.yml')
-
-
-@app.route('/')
-def home():
-    return render_template('home.html')
+@app.route("/")
+def hello_world():
+    return "<p>Hello, World!</p>"
 
 
 if __name__ == '__main__':
